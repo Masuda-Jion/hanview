@@ -26,6 +26,9 @@
 - 購入した商品のレビューをしたい場合
 
 ## 設計書
+- ER図 https://drive.google.com/file/d/1HKvlqQC6TJT3AL7ni3IZVpFKFv5aT3Gj/view?usp=sharing
+- テーブル定義書 https://docs.google.com/spreadsheets/d/1Ai5QkBYpH9LU1kS96DofOK7OjgbWeONRsJTUcZTObkk/edit?usp=sharing
+- アプリケーション詳細設計書 https://docs.google.com/spreadsheets/d/1ivRbwyPbKVXkxDI5SVIO_7h1P7tPw3Vi_b5Lu3VzFFc/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
