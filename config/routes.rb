@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get 'homes/about'
     #menusコントローラー
     resources:menus, only: [:index, :show, :create]
+    #customersコントローラー
     get 'customers/mypage' => 'customers#show'
     get 'customers/mypage/edit' => 'customers#edit'
     patch 'customers/mypage' => 'customers#update'
@@ -27,6 +28,13 @@ Rails.application.routes.draw do
     patch 'customers/withdraw'
     get 'customers/follows'
     get 'customers/followers'
+    resources :customers do
+      member do
+        get :follows, :followers
+      end
+      
+      resource :relationships, only: [:create, :destroy]
+    end
     #cart_itemsコントローラー
     resources:cart_items, only: [:index, :update, :destroy, :create]
     delete 'cart_items/destroy_all'

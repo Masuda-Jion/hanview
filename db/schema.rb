@@ -105,6 +105,8 @@ ActiveRecord::Schema.define(version: 2023_04_12_171022) do
     t.integer "followed_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -117,4 +119,6 @@ ActiveRecord::Schema.define(version: 2023_04_12_171022) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "relationships", "customers", column: "followed_id"
+  add_foreign_key "relationships", "customers", column: "follower_id"
 end
