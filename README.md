@@ -39,6 +39,7 @@
 
 ## 使用素材
 - いらすとや（ https://www.irasutoya.com ）
+- CANVA ( https://www.canva.com )
 - 仕様素材を追加し次第、追記します。
 
 ## 追記
