@@ -1,2 +1,62 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<div class='container px-5 px-0'>
+  <div class='row'>
+
+    <div class="card mt-5 col-2">
+      
+      <div class="card-body", style="height: 40px;">
+        
+        <p class="card-title">ジャンル検索</p>
+        
+      </div>
+    
+    </div>
+
+    <div class='col-8 offset-1 mt-5'>
+      
+      <div class="jumbotron" style="background:url('assets/home.png');
+      background-size:cover; background-color:rgba(255,255,255,0.5);
+      background-blend-mode:lighten;">
+        
+        <h5 class="display-8">
+          ようこそ、HanViewへ！
+        </h5>
+        
+        <p>
+          このサイトは、ネット通販とレビューのECサイトになります。<br>
+          会員でない方も商品の閲覧は出来ますが、<br>
+          購入、レビュー、フォローには会員登録が必要になります。
+        </p>
+        
+      </div>
+
+      <div class='row ml-1'>
+        
+        <h4>新着商品</h4>
+     
+      </div>
+      
+      <% count = 0 %>
+      
+      <div class="row">
+        
+
+        <div class="justify-content-end mt-3 ml-5">
+          
+          <%= link_to menus_path do %>
+            
+            <p>
+              全ての商品を見る
+            </p>
+          
+          <% end %>
+        
+        </div>
+
+      
+      </div>
+    
+    </div>
+  
+  </div>
+
+</div>
