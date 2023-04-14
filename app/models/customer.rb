@@ -14,6 +14,16 @@ class Customer < ApplicationRecord
   has_many :follower_customer, through: :followed, source: :follower
   has_many :reviews , dependent: :destroy
 
+  #バリデーション
+  validates :first_name, presence: true
+  validates :first_name_kana, presence: true
+  validates :last_name, presence: true
+  validates :last_name_kana, presence: true
+  validates :postcode, presence: true
+  validates :address, presence: true
+  validates :telephone_number, presence: true
+
+
   # ユーザーをフォローする
   def follow(customer_id)
     follower.create(followed_id: customer_id)
@@ -28,4 +38,10 @@ class Customer < ApplicationRecord
   def following?(customer)
     following_customer.include?(customer)
   end
+  
+  # 退会ステータスがfalseの時にtrueを返す
+  def active_for_authentication?
+    super && (is_delete == false)
+  end
+
 end
