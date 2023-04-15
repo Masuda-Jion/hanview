@@ -39,9 +39,9 @@ Rails.application.routes.draw do
     delete 'cart_items/destroy_all'
     resources:cart_items, only: [:index, :update, :destroy, :create]
     #ordersコントローラー
-    resources:orders, only: [:new,:create,:index,:show]
-    post 'orders/check'
     get 'orders/done'
+    resources:orders, only: [:new, :create, :index, :show]
+    post 'orders/check'
     #deliveriesコントローラー
     resources:deliveries, only: [:index, :edit, :create, :update, :destroy]
     #reviewsコントローラー

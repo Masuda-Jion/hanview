@@ -1,0 +1,83 @@
+<div class="container mt-5">
+
+  <div class="row">
+    <p>注文情報確認画面</p>
+  </div>
+
+  <div class="row">
+
+    <table class="table table-bordered col-md-8">
+
+      <thead>
+        <tr>
+          <td>商品名</td>
+          <td>単価(税込)</td>
+          <td>数量</td>
+          <td>小計</td>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @cart_items.each do |cart| %>
+          <tr>
+            <td>
+              <%= image_tag cart.menu.get_image(60, 40) %>
+              <%= cart.menu.name %>
+            </td>
+            <td><%= cart.menu.tax_in_price %></td>
+            <td><%= cart.count %></td> <!-- 個数 -->
+            <td><%= cart.subtotal_price %></td> <!-- 小計 -->
+          </tr>
+        <% end %>
+      </tbody>
+
+    </table>
+
+    <table class="table table-bordered col-md-3 ml-5">
+
+      <tr>
+        <td scope="row">送料</td>
+        <td><%= @postage %></td>
+      </tr>
+
+      <tr>
+        <td scope="row">商品合計</td>
+        <td><%= @total_price.to_s(:delimited) %></td>
+      </tr>
+
+      <tr>
+        <td scope="row">請求金額</td>
+        <td><%= @total_price + @postage %></td>
+      </tr>
+
+    </table>
+
+  </div>
+
+  <p>支払方法： <%= Order.payment_ways[@order.payment_way.to_s.to_sym] %></p>
+
+  <p>お届け先： 〒<%= @order.postcode %> <%= @order.address %> <%= @order.name %></p>
+
+</div>
+
+</div>
+
+<div class="d-flex justify-content-center">
+
+  <div class="row">
+
+    <%= form_with model: @order, url: orders_path, method: :post do |f| %>
+      <%= f.hidden_field :customer_id, :value => current_customer.id %>
+      <%= f.hidden_field :postage, :value => @postage %>
+      <%= f.hidden_field :payment_way, :value => @order.payment_way %>
+      <%= f.hidden_field :amount, :value => @total_price + @postage %>
+      <%= f.hidden_field :postcode, :value => @order.postcode %>
+      <%= f.hidden_field :address, :value => @order.address %>
+      <%= f.hidden_field :name, :value => @order.name %>
+
+      <%= f.submit "注文を確定する", class:"btn btn-success mt-5" %>
+    <% end %>
+
+  </div>
+
+</div>
