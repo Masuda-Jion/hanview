@@ -32,12 +32,12 @@ Rails.application.routes.draw do
       member do
         get :follows, :followers
       end
-      
+
       resource :relationships, only: [:create, :destroy]
     end
     #cart_itemsコントローラー
-    resources:cart_items, only: [:index, :update, :destroy, :create]
     delete 'cart_items/destroy_all'
+    resources:cart_items, only: [:index, :update, :destroy, :create]
     #ordersコントローラー
     resources:orders, only: [:new,:create,:index,:show]
     post 'orders/check'

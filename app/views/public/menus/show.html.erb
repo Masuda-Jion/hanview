@@ -1,2 +1,49 @@
-<h1>Public::Menus#show</h1>
-<p>Find me in app/views/public/menus/show.html.erb</p>
+<div class='container px-5 px-0'>
+
+  <div class="row">
+
+    <div class="card mt-5 col-2">
+
+      <div class="card-body", style="height: 40px;">
+
+        <p class="card-title">ジャンル検索</p>
+
+        <% @genres.each do |genre| %>
+          <div class="card-text"><%= genre.name %></div>
+        <% end %>
+
+      </div>
+
+    </div>
+
+    <div class='col-4 mt-5 ml-5'>
+      <%= image_tag @menu.get_image(360, 240) %>
+    </div>
+
+    <div class='col-5 mt-5 ml-3'>
+
+      <h5><%= @menu.name %></h5>
+
+      <%= @menu.info %>
+
+      <div>￥<%= @menu.tax_in_price %>(税込)</div>
+
+     <!--商品の販売状況で表示を変える-->
+      <% if @menu.is_sale? %>
+        <%= form_with(model: @cart_item, url: cart_items_path, local: true) do |f| %>
+        <!--ユーザーには見せたくないが取得が必要な情報にhidden_fieldを使う-->
+          <div class="mt-5">
+            <%= f.select :count, *[1..99], { selected: nil, include_blank: '個数選択'}, { class: "select"} %>
+            <%= f.hidden_field :menu_id, :value => @menu.id %>
+            <%= f.submit "カートに入れる", class:"btn btn-success btn-sm" %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="btn btn-secondary btn-sm mt-5">売り切れ中です</div>
+      <% end %>
+
+    </div>
+
+  </div>
+
+</div>
