@@ -22,8 +22,8 @@ class Customer < ApplicationRecord
   validates :postcode, presence: true
   validates :address, presence: true
   validates :telephone_number, presence: true
-
-
+  
+  
   # ユーザーをフォローする
   def follow(customer_id)
     follower.create(followed_id: customer_id)

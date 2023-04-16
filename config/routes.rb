@@ -28,7 +28,6 @@ Rails.application.routes.draw do
     patch 'customers/withdraw'
     get 'customers/follows'
     get 'customers/followers'
-    get 'customers/:id' => 'customers#other'
     resources :customers do
       member do
         get :follows, :followers
