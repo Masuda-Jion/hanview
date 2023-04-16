@@ -3,6 +3,14 @@ class Public::CustomersController < ApplicationController
   def show
     @customer = current_customer
   end
+  
+  def other
+    # フォロー数とフォロワー数を表示する
+    @customer_show = Customer.find(params[:id])
+    @posts = @customer_show.posts.page(params[:page]).reverse_order
+    @following_customers = @customer_show.following_customers
+    @follower_customers = @customer_show.follower_customers
+  end
 
   def edit
     @customer = current_customer
@@ -29,10 +37,16 @@ class Public::CustomersController < ApplicationController
     redirect_to root_path
   end
 
+  # フォローしている人の一覧ページ
   def follows
+    user = User.find(params[:id])
+    @users = user.following_user.page(params[:page]).per(3).reverse_order
   end
 
+  # フォロワーの一覧ページ
   def followers
+    user = User.find(params[:id])
+    @users = user.follower_user.page(params[:page]).per(3).reverse_order
   end
 
   private
