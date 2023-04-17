@@ -10,6 +10,7 @@ class Public::MenusController < ApplicationController
     @genres = Genre.all
     @count = params[:count] || 1
     @cart_item = CartItem
+    @reviews = Review.new
   end
 
 end

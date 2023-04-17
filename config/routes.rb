@@ -45,7 +45,7 @@ Rails.application.routes.draw do
     #deliveriesコントローラー
     resources:deliveries, only: [:index, :edit, :create, :update, :destroy]
     #reviewsコントローラー
-    resources:reviews, only: [:index, :edit, :show, :create, :update, :destroy]
+    resources:reviews, only: [:new, :index, :edit, :show, :create, :update, :destroy]
     post 'reviews/comment'
     post 'reviews/like'
     delete 'reviews/unlike'

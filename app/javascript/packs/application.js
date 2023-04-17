@@ -14,6 +14,16 @@ import "bootstrap";
 import "../stylesheets/application" 
 import '@fortawesome/fontawesome-free/js/all'
 
+window.$ = window.jQuery = require('jquery');
+
 Rails.start()
-Turbolinks.start()
+// Turbolinks.start()
 ActiveStorage.start()
+
+// 星評価の記述
+import Raty from "raty.js"
+window.raty = function(elem,opt) {
+  let raty =  new Raty(elem,opt)
+  raty.init();
+  return raty;
+}

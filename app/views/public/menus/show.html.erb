@@ -42,8 +42,15 @@
         <div class="btn btn-secondary btn-sm mt-5">売り切れ中です</div>
       <% end %>
 
+
+
+      <%= render 'public/reviews/index', menu: @menu %>
+
+      <%= render 'public/reviews/form',{ review: Review.new, menu: @menu } %>
+
     </div>
 
   </div>
 
 </div>
+
