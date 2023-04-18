@@ -14,9 +14,10 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
+  #searchコントローラー
+  get "search" => "searches#search_result"
+
   scope module: :public do
-    #searchコントローラー
-    get "search" => "searches#search"
     #homeコントローラー
     root to: 'homes#top'
     get 'homes/about'
