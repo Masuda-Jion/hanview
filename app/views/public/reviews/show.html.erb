@@ -1,2 +1,35 @@
-<h1>Public::Reviews#show</h1>
-<p>Find me in app/views/public/reviews/show.html.erb</p>
+<div class='container px-0'>
+
+
+  <h1 class="p-2">
+    <%= @customer.first_name %>
+    <%= @customer.last_name %>さんのレビュー
+  </h1>
+
+  <table class="table table-bordered">
+
+    <tr>
+      <th>タイトル</th>
+      <th><%= @review.title %></th>
+    </tr>
+
+    <tr>
+     <th>動画</th>
+     <th>
+       <video src="<%= rails_blob_path(@review.video) %>" type="video/mp4" controls></video>
+     </th>
+    </tr>
+
+    <tr>
+     <th>コメント</th>
+     <th><%= @review.content %></th>
+    </tr>
+
+    <tr>
+      <th>評価</th>
+      <th><%= @review.star %></th>
+    </tr>
+    
+  </table>
+  
+</div>

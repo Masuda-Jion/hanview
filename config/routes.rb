@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   }
 
   scope module: :public do
+    #searchコントローラー
+    get "search" => "searches#search"
     #homeコントローラー
     root to: 'homes#top'
     get 'homes/about'

@@ -4,7 +4,7 @@
       <tr>
 
         <td>
-          <%= link_to customer_path(review.customer) do %>
+          <%= link_to review_path(review.id) do %>
             <%= review.customer.first_name %>
             <%= review.customer.last_name %>
           <% end %>

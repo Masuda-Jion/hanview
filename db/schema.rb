@@ -143,6 +143,7 @@ ActiveRecord::Schema.define(version: 2023_04_15_000942) do
     t.string "title"
     t.string "star"
     t.text "content"
+    t.string "video"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,12 +1,10 @@
 <div class='container px-0'>
 
 
-  <h1 class="p-2">マイページ</h1>
-
-  <p>
-    登録情報
-    <%= link_to "編集する", customers_mypage_edit_path, class: "btn btn-success", data: {"turbolinks"=>false} %>
-  </p>
+  <h1 class="p-2">
+    <%= @customer.first_name %>
+    <%= @customer.last_name %>さんのページ
+  </h1>
 
   <table class="table table-bordered">
 
@@ -42,22 +40,30 @@
 
   </table>
 
-  <table>
-    <div class="span">
-      <tr>
-        <td>配送先</td>
-        <td><%= link_to "一覧を見る", deliveries_path, class: "btn btn-info" %></td>
-      </tr>
-    </div>
+  <% if @customer.id == current_customer.id %>
+    <table>
+
+      <p>
+        登録情報
+        <%= link_to "編集する", customers_mypage_edit_path, class: "btn btn-success", data: {"turbolinks"=>false} %>
+      </p>
+
+      <div class="span">
+        <tr>
+          <td>配送先</td>
+          <td><%= link_to "一覧を見る", deliveries_path, class: "btn btn-info" %></td>
+        </tr>
+      </div>
 
 
-    <div class="span">
-      <tr>
-        <td>注文履歴</td>
-        <td><%= link_to "一覧を見る", orders_path, class: "btn btn-info" %></td>
-      </tr>
-    </div>
+      <div class="span">
+        <tr>
+          <td>注文履歴</td>
+          <td><%= link_to "一覧を見る", orders_path, class: "btn btn-info" %></td>
+        </tr>
+      </div>
 
-  </table>
+    </table>
+  <% end %>
 
 </div>

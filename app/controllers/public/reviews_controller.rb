@@ -23,6 +23,8 @@ class Public::ReviewsController < ApplicationController
   end
 
   def show
+    @customer = Customer.find(params[:id])
+    @review = Review.find(params[:id])
   end
 
   def destroy
@@ -35,7 +37,7 @@ class Public::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :star, :content, :menu_id)
+    params.require(:review).permit(:title, :video, :star, :content, :menu_id)
   end
 
 end

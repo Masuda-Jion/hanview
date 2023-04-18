@@ -1,0 +1,15 @@
+<h2>Results index</h2>
+
+<table class="table table-hover table-inverse">
+  <tbody>
+    <% @menus.each do |menu| %>
+      <tr>
+        <%= link_to menu_path(menu.id) do %>
+          <%= image_tag menu.get_image(160, 120) %>
+        <% end %>
+        <tr><%= menu.name %></tr>
+        <tr>￥<%= menu.tax_in_price %></tr>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
