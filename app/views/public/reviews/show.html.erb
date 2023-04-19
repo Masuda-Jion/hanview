@@ -5,6 +5,10 @@
     <%= @review.customer.first_name %>
     <%= @review.customer.last_name %>さんのレビュー
   </h1>
+  
+  <div class="py-4 col-5">
+    <%= link_to "編集する", edit_review_path(@review), class: 'btn btn-success' %>
+  </div>
 
   <table class="table table-bordered">
 
@@ -17,7 +21,7 @@
       <th>動画</th>
       <th>
         <% if @review.video.attached? %>
-          <video src="<%= rails_blob_path(@review.video) %>" type="video/mp4" controls></video>
+          <video src="<%= rails_blob_url(@review.video) %>" type="video/mp4" controls></video>
         <% end %>
       </th>
     </tr>
@@ -42,5 +46,9 @@
     </tr>
 
   </table>
+
+  <div class=<%= "like-" + @review.id.to_s %> >
+    <%= render 'public/likes/btn', review: @review %>
+  </div>
 
 </div>

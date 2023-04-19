@@ -6,7 +6,7 @@ class CreateReviews < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :star
       t.text :content
-      t.string :video
+      t.string :vide
       t.timestamps
     end
   end

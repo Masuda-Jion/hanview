@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     #sessionsコントローラー
     sessions: "public/sessions"
   }
-  
-  
+
+
   # 管理者用
   devise_for :admin, controllers: {
     #sessionsコントローラー
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   #searchコントローラー
   get "search" => "searches#search_result"
-  
+
   # ゲストログインの記述
   devise_scope :customer do
     post 'customers/guest_sign_in', to: 'public/sessions#guest_sign_in'
@@ -54,7 +54,9 @@ Rails.application.routes.draw do
     #deliveriesコントローラー
     resources:deliveries, only: [:index, :edit, :create, :update, :destroy]
     #reviewsコントローラー
-    resources:reviews, only: [:new, :index, :edit, :show, :create, :update, :destroy]
+    resources:reviews, only: [:new, :index, :edit, :show, :create, :update, :destroy] do
+      resource :likes, only: [:create, :destroy]
+    end
     post 'reviews/comment'
     #relationshipsコントローラー
     resources:relationships, only: [:create, :destroy]

@@ -1,2 +1,69 @@
-<h1>Public::Reviews#edit</h1>
-<p>Find me in app/views/public/reviews/edit.html.erb</p>
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-8">
+
+      <h1 class="p-2">
+        <%= @review.customer.first_name %>
+        <%= @review.customer.last_name %>さんのレビュー編集画面
+      </h1>
+    </div>
+
+  </div>
+
+  <% if @review.errors.any? %>
+    <h3><%= @review.errors.count %>件のエラーが発生しました</h3>
+
+    <ul>
+      <% @review.errors.full_messages.each do |message| %>
+        <li class="text-danger"><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_with model: @review,url:review_path do |f| %>
+    <div class="row">
+
+      <div class="col-8 offset-1">
+
+        <table>
+
+            <tr class="field">
+              <td class="pr-5 py-3">タイトル</td>
+              <td class="pr-3"><%= f.text_field :title, class: "form-control" %></td>
+            </tr>
+
+            <tr>
+              <td class="pr-5 py-3">動画</td>
+              <td class="pr-3"><%= f.file_field :video, placeholder: "ファイルを選択" %></td>
+            </tr>
+
+            <tr>
+              <td class="pr-5 py-3">画像</td>
+              <td class="pr-3"><%= f.file_field :image %></td>
+            </tr>
+
+            <tr>
+              <td class="pr-5 py-3">コメント</td>
+              <td class="pr-3"><%= f.text_field :content, class: "form-control" %></td>
+            </tr>
+
+            <tr>
+              <td class="pr-5 py-3">評価</td>
+              <td class="pr-3"><%= @review.star %></td>
+            </tr>
+
+        </table>
+
+      </div>
+
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+      <%= f.submit '変更を保存', class: 'btn btn-success' %>
+    </div>
+
+  <% end %>
+
+</div>
