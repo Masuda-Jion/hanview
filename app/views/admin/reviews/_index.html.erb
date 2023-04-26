@@ -1,0 +1,40 @@
+<table>
+  <tbody>
+      <% menu.reviews.each do |review| %>
+      <tr>
+
+        <td>
+          <%= link_to admin_review_path(review.id) do %>
+            <%= review.customer.first_name %>
+            <%= review.customer.last_name %>
+          <% end %>
+        </td>
+        <td><%= review.title %></td>
+        <td><%= review.content %></td>
+        <td>
+          <%= review.star %>
+          <div id="post_raty<%= review.id %>"></div>
+          <script>
+            $(function() {
+            let raty_elem = document.querySelector('#post_raty<%= review.id %>');
+            raty_elem.innerHTML = ""
+            let option = {
+                starOn: "<%= asset_path('star-on.png') %>",
+                starOff: "<%= asset_path('star-off.png') %>",
+                starHalf: "<%= asset_path('star-half.png') %>",
+                score: "<%= review.star %>",
+                readOnly: true
+              };
+            raty(raty_elem,option);
+           });
+          </script>
+        </td>
+        <td>
+          <% if review.customer == current_customer %>
+            <%= link_to "Destroy", review_path(review), method: :delete, class: "btn btn-danger pull-right" %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

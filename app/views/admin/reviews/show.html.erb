@@ -1,0 +1,50 @@
+<div class='container px-0'>
+
+
+  <h1 class="p-2">
+    <%= @review.customer.first_name %>
+    <%= @review.customer.last_name %>さんのレビュー
+  </h1>
+  
+  <div>
+    <%= link_to "Destroy", admin_review_path(@review), method: :delete, class: "btn btn-danger pull-right" %>
+  </div>
+
+  <table class="table table-bordered">
+
+    <tr>
+      <th>タイトル</th>
+      <th><%= @review.title %></th>
+    </tr>
+
+    <tr>
+      <th>動画</th>
+      <th>
+        <% if @review.video.attached? %>
+          <video src="<%= rails_blob_url(@review.video) %>" type="video/mp4" controls></video>
+        <% end %>
+      </th>
+    </tr>
+
+    <tr>
+      <th>画像</th>
+      <th>
+        <% if @review.image.attached? %>
+          <%= image_tag @review.get_image(360, 240) %>
+        <% end %>
+      </th>
+    </tr>
+
+    <tr>
+     <th>コメント</th>
+     <th><%= @review.content %></th>
+    </tr>
+
+    <tr>
+      <th>評価</th>
+      <th><%= @review.star %></th>
+    </tr>
+
+  </table>
+
+</div>
