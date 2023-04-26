@@ -12,5 +12,11 @@ class Public::MenusController < ApplicationController
     @cart_item = CartItem
     @reviews = Review.new
   end
+  
+  def genre_search
+    @genre = Genre.find(params[:id])
+    @menus = @genre.menus.all.page(params[:page]).per(8)
+    @genres = Genre.all
+  end
 
 end

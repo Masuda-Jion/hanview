@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'homes/about'
     #menusコントローラー
+    get "menus/genre_search" => "menus#genre_search", as: "genre_search"
     resources:menus, only: [:index, :show, :create]
     #customersコントローラー
     get 'customers/mypage' => 'customers#show'

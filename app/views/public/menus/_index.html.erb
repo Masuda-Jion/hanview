@@ -1,0 +1,17 @@
+<div class="d-flex flex-wrap ">
+  <% menus.each do |menu| %>
+
+  <div class="col-3 my-2">
+    <%= link_to menu_path(menu) do %>
+      <div class="card text-dark tr-color h-100">
+        <%= image_tag menu.get_image(175, 150) %>
+        <div class="card-body">
+          <p class="card-title text-truncate"><%= menu.name %></p>
+          <p class="card-text text-truncate"> ￥<%= menu.tax_in_price %>(税込)</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <% end %>
+</div>

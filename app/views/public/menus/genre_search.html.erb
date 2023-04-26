@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <%= render 'list', genres: @genres %>
+    <div class="col-md-9 offset-md-1 mt-5">
+      <div>
+        <div class="d-flex align-items-end mb-3">
+          <h2 class="m-0"><%= @genre.name %>一覧</h2>
+          <span class="ml-3">(全<%= @menus.count %>件)</sapn>
+        </div>
+        <%= render 'index', menus: @menus %>
+      </div>
+    </div>
+  </div>
+</div>
