@@ -87,7 +87,7 @@
               <td><%= order_detail.tax_in_price * order_detail.count %></td>
               <td>
                 <%= form_with model:order_detail, url: admin_order_detail_path(order_detail), class: "form-row" do |f| %>
-                  <%= f.select(:make_status, ["着手不可", "製作待ち", "製作中", "製作完了"], {}, { class:"custom-select col-6" } ) %>
+                  <%= f.select(:make_status, ["着手不可", "製作待ち", "製作中", "製作完了"], {}, { class:"custom-select col-8" } ) %>
                   <%= f.submit "更新", class: 'btn btn-success ml-2' %>
                 <% end %>
               </td>

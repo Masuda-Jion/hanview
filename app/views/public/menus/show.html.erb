@@ -30,15 +30,16 @@
 
     </div>
     
-    <div class="ml-5">
-      <%= render 'public/reviews/form',{ review: Review.new, menu: @menu } %>
-    </div>
-    
   </div>
   
   <div class="row my-5">
     <%= render 'public/reviews/index', menu: @menu %>
   </div>
 
+  
+  <div class="pl-5 my-5">
+    <%= render 'public/reviews/form',{ review: Review.new, menu: @menu } %>
+  </div>
+  
 </div>
 
