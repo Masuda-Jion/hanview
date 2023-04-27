@@ -1,15 +1,24 @@
-<table>
+<h4 class="ml-5">レビュー</h4>
+
+<table class="table table-bordered col-md-10 offset-md-1">
+  
+  <thead>
+    <td>タイトル</td>
+    <td>投稿者</td>
+    <td>コメント</td>
+    <td>5段階評価</td>
+  </thead>
+  
   <tbody>
       <% menu.reviews.each do |review| %>
       <tr>
-
+        <td><%= review.title %></td>
         <td>
           <%= link_to review_path(review.id) do %>
             <%= review.customer.first_name %>
             <%= review.customer.last_name %>
           <% end %>
         </td>
-        <td><%= review.title %></td>
         <td><%= review.content %></td>
         <td>
           <%= review.star %>
@@ -29,11 +38,11 @@
            });
           </script>
         </td>
-        <td>
           <% if review.customer == current_customer %>
-            <%= link_to "Destroy", review_path(review), method: :delete, class: "btn btn-danger pull-right" %>
+            <td>
+              <%= link_to "Destroy", review_path(review), method: :delete, class: "btn btn-danger pull-right" %>
+            </td>
           <% end %>
-        </td>
       </tr>
       <% end %>
   </tbody>

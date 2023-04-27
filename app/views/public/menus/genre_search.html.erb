@@ -1,14 +1,33 @@
-<div class="container">
+<div class="container px-1">
   <div class="row">
     <%= render 'list', genres: @genres %>
-    <div class="col-md-9 offset-md-1 mt-5">
+    <div class="col-8 offset-1 mt-5">
       <div>
         <div class="d-flex align-items-end mb-3">
           <h2 class="m-0"><%= @genre.name %>一覧</h2>
           <span class="ml-3">(全<%= @menus.count %>件)</sapn>
         </div>
-        <%= render 'index', menus: @menus %>
+        <div class="row no-gutters">
+          <% @menus.each do |menu| %>
+            <div class="col-4 mx-4 text-center shadow-lg rounded pt-4 px-0 bg-light">
+              <%= link_to menu_path(menu) do %>
+                <div class="text-dark tr-color h-100">
+                  <%= image_tag menu.get_image(175, 150) %>
+                  <div>
+                    <h6 class="py-4 mb-0"><%= menu.name %></h6>
+                    <p> ￥<%= menu.tax_in_price %></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
+</div>
+
+<!--ページネーション-->
+<div class="d-flex justify-content-center">
+ <%= paginate @menus %>
 </div>

@@ -9,24 +9,46 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
-    <link rel="stylesheet" type="text/css" href="css/5-11.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+    <script>
+    jQuery(document).ready(function() {
+    var offset = 100;
+    var duration = 500;
+    jQuery(window).scroll(function() {
+    if (jQuery(this).scrollTop() > offset) {
+    jQuery('.pagetop').fadeIn(duration);
+    } else {
+    jQuery('.pagetop').fadeOut(duration);
+    }
+    });
+    
+    jQuery('.pagetop').click(function(event) {
+    event.preventDefault();
+    jQuery('html, body').animate({scrollTop: 0}, duration);
+    return false;
+    })
+    });
+    </script>
   </head>
 
   <body>
-    <header>
+    <header class="sticky-top bg-light">
       <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
+        <div class="container col-10">
           <a class="navbar-brand" href="/"><%= image_tag('HanView1.png')%></a>
+          <div class="ml-5">  
+            <%= render 'layouts/search'%>
+          </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
               <!--会員がログインしている場合-->
-              <li style="color:limegreen;" class="pt-2"><span>ようこそ<%= current_customer.first_name %><%= current_customer.last_name %>さん！</span></li>
+              <li style="color:white;" class="pt-2 mr-5"><span class="bg-info p-2">ようこそ<%= current_customer.first_name %><%= current_customer.last_name %>さん！</span></li>
                <li>
                  <%= link_to customers_mypage_path, class: 'nav-link text-dark' do %>
                    <i class="fas fa-user"></i> マイページ
@@ -51,7 +73,7 @@
               <!--管理者がログインしている場合-->
                <li>
                  <%= link_to admin_menus_path, class: 'nav-link text-dark' do %>
-                 <i class="fas fa-birthday-cake"></i> 商品一覧
+                 <i class="fas fa-store"></i> 商品一覧
                <% end %>
                </li>
                <li>
@@ -77,13 +99,8 @@
               <% else %>
               <!--ログインしていない状態-->
                 <li>
-                  <%= link_to homes_about_path,class: 'nav-link text-dark' do %>
-                    <i class="fas fa-link"></i> About
-                  <% end %>
-                </li>
-                <li>
                   <%= link_to menus_path,class: 'nav-link text-dark' do %>
-                    <i class="fas fa-birthday-cake"></i> 商品一覧
+                    <i class="fas fa-store"></i> 商品一覧
                   <% end %>
                 </li>
                 <li>
@@ -99,26 +116,30 @@
               <% end %>
             </ul>
           </div>
-
-          <%= render 'layouts/search' %>
-          <%= link_to 'ゲストログイン（閲覧用）', customers_guest_sign_in_path, method: :post %>
+          
         </div>
+        
+        
+        
       </nav>
     </header>
 
     <%= flash[:notice] %>
 
     <%= yield %>
-
-    <footer>
-      <div class='container mt-5'>
-        <div class='row'>
-          <div class='mx-auto'>
-            <p>CopyRight MASUDA JION.inc</p>
+    
+    <div class="pt-5">
+      <footer class="bg-light fixed-bottom">
+        <div class='container'>
+          <div class='row'>
+            <div class='mx-auto'>
+              <p class="footer-write pt-3">CopyRight MASUDA JION.inc</p>
+            </div>
+            <div class="pagetop">↑</div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
 
   </body>
 </html>

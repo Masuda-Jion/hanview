@@ -8,7 +8,7 @@ class Public::ReviewsController < ApplicationController
     @review = current_customer.reviews.new(review_params)
     @review.menu_id = menu.id
     if @review.save
-      flash[:notice] = "You have created book successfully."
+      flash[:notice] = "レビューを投稿しました"
       redirect_to menu_path(menu)
     else
       flash[:notice] = "星の評価をしてください"

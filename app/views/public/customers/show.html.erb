@@ -6,7 +6,7 @@
     <%= @customer.last_name %>さんのページ
   </h1>
 
-  <table class="table table-bordered">
+  <table class="table table-bordered my-4">
 
     <tr>
       <th>氏名</th>
@@ -48,20 +48,20 @@
         <%= link_to "編集する", customers_mypage_edit_path, class: "btn btn-success", data: {"turbolinks"=>false} %>
       </p>
 
-      <div class="span">
-        <tr>
-          <td>配送先</td>
-          <td><%= link_to "一覧を見る", deliveries_path, class: "btn btn-info" %></td>
-        </tr>
-      </div>
-
-
-      <div class="span">
-        <tr>
-          <td>注文履歴</td>
-          <td><%= link_to "一覧を見る", orders_path, class: "btn btn-info" %></td>
-        </tr>
-      </div>
+        <div class="span">
+          <tr>
+            <td>配送先</td>
+            <td><%= link_to "一覧を見る", deliveries_path, class: "btn btn-info" %></td>
+          </tr>
+        </div>
+  
+  
+        <div class="span">
+          <tr>
+            <td>注文履歴</td>
+            <td><%= link_to "一覧を見る", orders_path, class: "btn btn-info" %></td>
+          </tr>
+        </div>
 
     </table>
   <% end %>

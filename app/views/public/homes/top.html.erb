@@ -1,11 +1,14 @@
-<div class='container px-5 px-0'>
+<div class='container px-1'>
+  
+  <%= link_to 'ゲストログイン', customers_guest_sign_in_path, method: :post , class:"mt-2 btn btn-success btn-sm" %>
+  
   <div class='row'>
     
     <%= render 'public/menus/list', genres: @genres %>
 
     <div class='col-8 offset-1 mt-5'>
 
-      <div class="jumbotron" style="background-size:cover; background-color:rgba(255,255,255,0.5);
+      <div class="jumbotron shadow-lg rounded" style="background-size:cover; background-color:rgba(255,255,255,0.5);
       background-blend-mode:lighten;">
 
         <h5 class="display-8">
@@ -20,22 +23,22 @@
 
       </div>
 
-        <h4 class="pt-3">新着商品</h4>
-        <div class="row">
-          <% @menus.each do |menu| %>
-              <div class="col-4">
-                <%= link_to menu_path(menu) do %>
-                  <div class="card text-dark tr-color h-100">
-                    <%= image_tag menu.get_image(175, 150) %>
-                    <div class="card-body">
-                      <h6 class="card-title text-truncate"><%= menu.name %></h6>
-                      <p class="card-text text-truncate"> ￥<%= menu.tax_in_price %></p>
-                    </div>
+      <h4 class="py-5">新着商品</h4>
+      <div class="row no-gutters">
+        <% @menus.each do |menu| %>
+            <div class="col-4 mx-4 text-center shadow-lg rounded pt-4 px-0 bg-light">
+              <%= link_to menu_path(menu) do %>
+                <div class="text-dark tr-color h-100">
+                  <%= image_tag menu.get_image(175, 150) %>
+                  <div>
+                    <h6 class="py-4 mb-0"><%= menu.name %></h6>
+                    <p> ￥<%= menu.tax_in_price %></p>
                   </div>
-                <% end %>
-              </div>
-          <% end %>
-        </div>
+                </div>
+              <% end %>
+            </div>
+        <% end %>
+      </div>
 
       <% count = 0 %>
 
@@ -46,7 +49,7 @@
 
           <%= link_to menus_path do %>
 
-            <p>
+            <p class="py-5">
               全ての商品を見る
             </p>
 
@@ -62,3 +65,4 @@
   </div>
 
 </div>
+

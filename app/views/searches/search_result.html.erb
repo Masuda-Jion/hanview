@@ -1,15 +1,33 @@
-<h2>Results index</h2>
 
-<table class="table table-hover table-inverse">
-  <tbody>
-    <% @menus.each do |menu| %>
-      <tr>
-        <%= link_to menu_path(menu.id) do %>
-          <%= image_tag menu.get_image(160, 120) %>
-        <% end %>
-        <tr><%= menu.name %></tr>
-        <tr>￥<%= menu.tax_in_price %></tr>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<div class="container px-1">
+  
+  <div class="py-5">
+    <h2>検索結果</h2>
+  </div>
+  
+  <div class="row">
+    <div class="col-8 offset-1 mt-5">
+      <div>
+        <div class="d-flex align-items-end mb-3">
+          <span class="ml-3">(全<%= @menus.count %>件)</sapn>
+        </div>
+        <div class="row no-gutters">
+          <% @menus.each do |menu| %>
+            <div class="col-4 mx-4 text-center shadow-lg rounded pt-4 px-0 bg-light">
+              <%= link_to menu_path(menu) do %>
+                <div class="text-dark tr-color h-100">
+                  <%= image_tag menu.get_image(175, 150) %>
+                  <div>
+                    <h6 class="py-4 mb-0"><%= menu.name %></h6>
+                    <p> ￥<%= menu.tax_in_price %></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

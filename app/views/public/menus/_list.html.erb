@@ -4,7 +4,7 @@
       <th>ジャンル検索</th>
     </tr>
     <% genres.each do |genre| %>
-    <tr class="tr-color ">
+    <tr class="tr-color">
       <td class="text-center"><%= link_to "#{genre.name}", genre_search_path(id: genre.id),class: "text-dark"%></td>
     </tr>
     <%end%>
