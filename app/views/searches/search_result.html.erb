@@ -17,7 +17,7 @@
             <div class="col-4 mx-4 text-center shadow-lg rounded pt-4 px-0 bg-light">
               <%= link_to menu_path(menu) do %>
                 <div class="text-dark tr-color h-100">
-                  <%= image_tag menu.get_image(175, 150) %>
+                  <%= image_tag menu.get_image %>
                   <div>
                     <h6 class="py-4 mb-0"><%= menu.name %></h6>
                     <p> ￥<%= menu.tax_in_price %></p>

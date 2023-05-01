@@ -26,10 +26,10 @@
       <h4 class="py-5">新着商品</h4>
       <div class="row no-gutters">
         <% @menus.each do |menu| %>
-            <div class="col-5 mx-4 text-center shadow-lg rounded pt-4 bg-light">
+            <div class="col-4 mx-4 text-center shadow-lg rounded mt-5 px-0 bg-light">
               <%= link_to menu_path(menu) do %>
                 <div class="text-dark tr-color h-100">
-                  <%= image_tag menu.get_image, class:image %>
+                  <%= image_tag menu.get_image %>
                   <div>
                     <h6 class="py-4 mb-0"><%= menu.name %></h6>
                     <p> ￥<%= menu.tax_in_price %></p>
