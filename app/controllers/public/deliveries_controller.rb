@@ -5,6 +5,8 @@ class Public::DeliveriesController < ApplicationController
   def create
     @delivery_new = Delivery.new(delivery_params)
     @delivery_new.customer_id = current_customer.id
+    
+    # 配送先の登録時の処理
     if @delivery_new.save
       redirect_to deliveries_path
     else
@@ -26,11 +28,13 @@ class Public::DeliveriesController < ApplicationController
   
   def update
     delivery = Delivery.find(params[:id])
-   if delivery.update(delivery_params)
-    redirect_to deliveries_path
-   else
-    render edit_delivery_path
-   end
+   
+  　# 配送先の編集時の処理
+　　if delivery.update(delivery_params)
+    　redirect_to deliveries_path
+  　else
+    　render edit_delivery_path
+  　end
   end
   
   def destroy

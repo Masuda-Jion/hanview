@@ -15,13 +15,6 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
-  before_action :set_search
-
-  def set_search
-   @search = Genre.ransack(params[:q])
-   @search_menus = @search.result
-  end
-
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected

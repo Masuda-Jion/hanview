@@ -9,6 +9,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.payment_way = params[:order][:payment_way]  #支払方法取得
 
+    # 支払方法や配送先を入力する処理
     if params[:order][:address_select] == "1"
       @order.name = current_customer.first_name
       @order.address = current_customer.address
@@ -42,9 +43,11 @@ class Public::OrdersController < ApplicationController
 
   def create
     cart_items = current_customer.cart_items.all
+    
     # ログインユーザーのカート内商品をすべて取り出す
     @order = current_customer.orders.new(order_params)
 
+    # 注文内容の保存処理
     if @order.save
       
       cart_items.each do |cart_item|
@@ -68,12 +71,14 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    # ログインユーザーの情報のみ閲覧可能
     if current_customer
       @orders = current_customer.orders
     end
   end
 
   def show
+    # ログインユーザーの情報のみ閲覧可能
     if current_customer
       @orders = current_customer.orders
     end

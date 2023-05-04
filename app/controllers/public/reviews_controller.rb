@@ -7,6 +7,8 @@ class Public::ReviewsController < ApplicationController
     menu = Menu.find(params[:review][:menu_id])
     @review = current_customer.reviews.new(review_params)
     @review.menu_id = menu.id
+    
+    # レビュー投稿時の処理
     if @review.save
       flash[:notice] = "レビューを投稿しました"
       redirect_to menu_path(menu)
@@ -26,6 +28,7 @@ class Public::ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     
+    # レビュー内容の編集時の処理
     if @review.update(review_params)
       flash[:notice] = "変更を保存しました"
       redirect_to review_path(@review.id)

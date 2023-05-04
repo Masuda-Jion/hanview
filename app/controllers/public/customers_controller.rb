@@ -10,6 +10,8 @@ class Public::CustomersController < ApplicationController
 
   def update
     @customer = current_customer
+    
+    # 会員情報編集時の処理
     if @customer.update(customer_params)
       redirect_to customers_mypage_path
     else
@@ -21,6 +23,7 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
   end
 
+  # 会員の退会処理
   def withdraw
     @customer = current_customer
     @customer.update(is_delete: true)
