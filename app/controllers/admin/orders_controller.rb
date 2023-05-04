@@ -12,6 +12,7 @@ class Admin::OrdersController < ApplicationController
     @order.update(order_params)
     @order_details = @order.order_details
     
+    # 入金ステータスの自動更新
     if @order.status == "入金確認"
         
       @order_details.each do |order_detail|

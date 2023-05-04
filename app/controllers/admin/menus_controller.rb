@@ -13,6 +13,7 @@ class Admin::MenusController < ApplicationController
   def create
     @menu = Menu.new(menu_params)
 
+    # 商品の登録時の処理
     if @menu.save
      redirect_to admin_menu_path(@menu)
      flash[:notice] = "新規登録確認しました。"
@@ -33,6 +34,7 @@ class Admin::MenusController < ApplicationController
   def update
     @menu = Menu.find(params[:id])
 
+    # 商品情報更新時の処理
     if @menu.update(menu_params)
      redirect_to admin_menu_path(@menu.id)
      flash[:notice] = "変更を保存しました。"

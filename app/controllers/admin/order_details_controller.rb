@@ -7,6 +7,7 @@ class Admin::OrderDetailsController < ApplicationController
     @order = @order_detail.order
     @order_detail.update(order_detail_params)
     
+    # 製作ステータスの自動更新
     if @order_details = @order.order_details
 
       if @order_details.where(make_status: "製作中").count >= 1

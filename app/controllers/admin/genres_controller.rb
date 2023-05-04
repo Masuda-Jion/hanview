@@ -10,6 +10,7 @@ class Admin::GenresController < ApplicationController
   def create
     @genre = Genre.new(genre_params)
     
+    # 新規登録完了時の処理
     if @genre.save
      flash[:notice] = "新規登録完了しました。"
      redirect_to admin_genres_path
@@ -27,6 +28,7 @@ class Admin::GenresController < ApplicationController
   def update
     @genre = Genre.find(params[:id])
     
+    # ジャンルの編集時の処理
     if @genre.update(genre_params)
      flash[:notice] = "変更を保存しました。"
      redirect_to admin_genres_path
