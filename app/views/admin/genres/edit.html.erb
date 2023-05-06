@@ -1,5 +1,6 @@
 <div class="container px-5 px-sm-0">
 
+  <!--エラーメッセージ-->
   <% if @genre.errors.any? %>
 
     <%= @genre.errors.count %>件のエラーが発生しました
@@ -18,6 +19,7 @@
 
       <h4 class="pt-md-1">ジャンル編集</h4>
 
+      <!--登録してあるジャンルを編集するフォーム-->
       <%= form_with model: @genre, url: admin_genre_path, method: :patch, local: true  do |f| %>
 
         <div>

@@ -8,13 +8,16 @@
       <div class="form-body p-4">
         <div class="mx-auto text-center">
           
+          <!--管理者ログインのフォーム-->
           <%= form_with model: @admin, url: session_path(resource_name), local: true do |f| %>
             <div class="form-group row">
               <%= f.label "メールアドレス", class: "col-3 px-0 mx-auto" %>
+              <!--admin@admin を入力-->
               <%= f.email_field :email, autofocus: true, placeholder: "sample@example.com", class: "col-7 mx-auto" %>
             </div>
             <div class="form-group row">
               <%= f.label "パスワード", class: "col-3 px-0 mx-auto" %>
+              <!--testtest を入力-->
               <%= f.password_field :password, autocomplete: "current-password", class: "col-7 mx-auto" %>
             </div>
             <div class="form-group row">
@@ -28,6 +31,3 @@
     </div>
   </div>
 </div>
-
-<%= render "admin/shared/links" %>
-

@@ -6,10 +6,12 @@
     <%= @review.customer.last_name %>さんのレビュー
   </h1>
   
+  <!--投稿されたレビューを削除するボタン-->
   <div>
     <%= link_to "Destroy", admin_review_path(@review), method: :delete, class: "btn btn-danger pull-right" %>
   </div>
 
+  <!--投稿されたレビューの詳細が表示される-->
   <table class="table table-bordered">
 
     <tr>

@@ -2,6 +2,7 @@
 
   <div class="row backgroundcolor:limegreen;">
 
+    <!--エラーメッセージ-->
     <% if @menu.errors.any? %>
       <%= @menu.errors.count %>件のエラーが発生しました
 
@@ -17,6 +18,7 @@
 
       <h4>商品新規登録</h4>
 
+      <!--商品を追加する-->
       <%= form_with model: @menu, url: admin_menus_path, method: :post, local: true do |f| %>
 
         <%= f.label :商品画像 %>

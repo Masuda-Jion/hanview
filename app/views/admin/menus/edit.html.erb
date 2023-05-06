@@ -1,5 +1,6 @@
 <div class="container px-5 px-sm-0">
 
+  <!--エラーメッセージ-->
   <% if @menu.errors.any? %>
 
     <%= @menu.errors.count %>件のエラーが発生しました
@@ -16,6 +17,7 @@
 
    <div class="col-md-4 offset-md-4">
 
+      <!--商品情報を編集するフォーム-->
       <%= form_with model: @menu, url: admin_menu_path, method: :patch, local: true do |f| %>
 
         <%= f.label :商品画像 %>

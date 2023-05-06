@@ -4,12 +4,14 @@
 
     <div class='row'>
 
+      <!--商品の画像-->
       <div class="col-md-7 d-flex justify-content-center">
         <%= image_tag @menu.get_image %>
       </div>
 
       <div class='col-md-5 pt-md-5'>
 
+        <!--現在登録されている商品の情報が表示される-->
         <table>
 
           <tr>
@@ -59,6 +61,7 @@
 
   </div>
   
+  <!--投稿されたレビューを表示する-->
   <div class="mt-5">
     <%= render 'admin/reviews/index', menu: @menu %>
   </div>

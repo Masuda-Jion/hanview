@@ -12,6 +12,7 @@
 
   </div>
 
+  <!--エラーメッセージ-->
   <% if @customer.errors.any? %>
     <h3><%= @customer.errors.count %>件のエラーが発生しました</h3>
 
@@ -22,6 +23,7 @@
     </ul>
   <% end %>
 
+  <!--会員情報入力フォーム-->
   <%= form_with model: @customer,url:admin_customer_path do |f| %>
     <div class="row">
 
@@ -66,6 +68,7 @@
               <td class="pr-3"><%= f.text_field :email, class: "form-control" %></td>
             </tr>
 
+            <!--どちら片方のみ選択できる-->
             <tr>
               <td class="pr-5 py-3">会員ステータス</td>
               <td>
