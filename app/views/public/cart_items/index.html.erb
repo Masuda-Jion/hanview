@@ -4,6 +4,7 @@
   
     <h5>ショッピングカート</h5>
     
+    <!--カート内の商品をすべて削除する機能、削除前にメッセージが出ます-->
     <div class="col-md-4 offset-md-10 mb-4">
       <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger btn-sm" %>
     </div>
