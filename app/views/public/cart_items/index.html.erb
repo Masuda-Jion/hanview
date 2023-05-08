@@ -13,6 +13,7 @@
 
   <div class="row">
     
+    <!--カート内商品の個数などの詳細が表示されます-->
     <table class="table col-md-12 justify-content-center">
       
       <thead>
@@ -64,6 +65,7 @@
 
   </div>
 
+  <!--商品がある場合とない場合で表示が変わります-->
   <% if @cart_items.exists? %>
     <div class="d-flex justify-content-center mt-5">
       
