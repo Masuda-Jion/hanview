@@ -1,9 +1,11 @@
 <div class='container px-1'>
   
+  <!--ゲストログイン用ボタン-->
   <%= link_to 'ゲストログイン', customers_guest_sign_in_path, method: :post , class:"mt-2 btn btn-success btn-sm" %>
   
   <div class='row'>
     
+    <!--ジャンルが表示される-->
     <%= render 'public/menus/list', genres: @genres %>
 
     <div class='col-8 offset-1 mt-5'>
@@ -24,6 +26,8 @@
       </div>
 
       <h4 class="py-5">新着商品</h4>
+      
+      <!--最近追加した順に商品が追加される-->
       <div class="row no-gutters">
         <% @menus.each do |menu| %>
             <div class="col-4 mx-4 text-center shadow-lg rounded mt-5 px-0 bg-light">

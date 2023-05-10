@@ -2,8 +2,10 @@
 
   <h2 class="pt-3 pb-3">配送先登録/一覧</h2>
   
+  <!--エラーメッセージの部分テンプレート-->
   <%= render 'layouts/errors', obj: @delivery_new %>
   
+  <!--配送先を追加するフォーム-->
   <%= form_with model: @delivery_new do |f| %>
   
     <table class="table">
@@ -39,6 +41,7 @@
     
   <% end %>
     
+  <!--既に追加されている配送先が入力される-->
   <table class="table table-bordered">
     
     <thead>

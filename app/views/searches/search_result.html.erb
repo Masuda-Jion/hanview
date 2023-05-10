@@ -12,6 +12,7 @@
         <div class="d-flex align-items-end mb-3">
           <span class="ml-3">(全<%= @menus.count %>件)</sapn>
         </div>
+        <!--検索した内容によって表示が変わる-->
         <div class="row no-gutters">
           <% @menus.each do |menu| %>
             <div class="col-4 mx-4 text-center shadow-lg rounded pt-4 px-0 bg-light">

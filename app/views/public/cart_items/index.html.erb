@@ -32,7 +32,7 @@
         <% @cart_items.each do |cart_item|  %>
           
           <tr>
-            <td><%= image_tag cart_item.menu.get_image(210, 140) %></td>
+            <td><%= image_tag cart_item.menu.get_image %></td>
             <td><%= cart_item.menu.name %></td>
             <td><%= cart_item.menu.tax_in_price %>円</td>
             <td>

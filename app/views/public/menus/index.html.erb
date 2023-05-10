@@ -2,10 +2,12 @@
   
   <div class="row">
       
+    <!--ジャンルの一覧が表示される-->
     <%= render 'public/menus/list', genres: @genres %>
 
     <div class='col-8 offset-1 mt-5'>
       
+      <!--追加した商品すべてが表示される-->
       <h5>商品一覧(全<%= @menus.count %>件)</h5>
       
       <div class="row no-gutters">

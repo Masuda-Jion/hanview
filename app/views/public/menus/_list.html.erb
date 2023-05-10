@@ -3,6 +3,7 @@
     <tr class="table-active text-center justify-content-center">
       <th>ジャンル検索</th>
     </tr>
+    <!--追加したジャンルが表示される-->
     <% genres.each do |genre| %>
     <tr class="tr-color">
       <td class="text-center"><%= link_to "#{genre.name}", genre_search_path(id: genre.id),class: "text-dark"%></td>

@@ -6,6 +6,7 @@
 
   <div class="row">
 
+    <!--購入する商品の個数や金額の情報が表示される-->
     <table class="table table-bordered col-md-8">
 
       <thead>
@@ -21,33 +22,34 @@
         <% @cart_items.each do |cart| %>
           <tr>
             <td>
-              <%= image_tag cart.menu.get_image(60, 40) %>
+              <%= image_tag cart.menu.get_image %>
               <%= cart.menu.name %>
             </td>
-            <td><%= cart.menu.tax_in_price %></td>
+            <td><%= cart.menu.tax_in_price %>　円</td>
             <td><%= cart.count %></td> <!-- 個数 -->
-            <td><%= cart.subtotal_price %></td> <!-- 小計 -->
+            <td><%= cart.subtotal_price %>　円</td> <!-- 小計 -->
           </tr>
         <% end %>
       </tbody>
 
     </table>
 
+    <!--金額に関する情報が表示される-->
     <table class="table table-bordered col-md-3 ml-5">
 
       <tr>
         <td scope="row">送料</td>
-        <td><%= @postage %></td>
+        <td><%= @postage %>円</td>
       </tr>
 
       <tr>
         <td scope="row">商品合計</td>
-        <td><%= @total_price.to_s(:delimited) %></td>
+        <td><%= @total_price.to_s(:delimited) %>円</td>
       </tr>
 
       <tr>
         <td scope="row">請求金額</td>
-        <td><%= @total_price + @postage %></td>
+        <td><%= @total_price + @postage %>円</td>
       </tr>
 
     </table>
@@ -64,6 +66,7 @@
 
 <div class="d-flex justify-content-center">
 
+  <!--注文情報を送るための処理-->
   <div class="row">
 
     <%= form_with model: @order, url: orders_path, method: :post do |f| %>

@@ -3,8 +3,10 @@
     
     <h3>配送先編集</h3>
     
+    <!--エラーメッセージの部分テンプレート-->
     <%= render 'layouts/errors', obj: @delivery %>
     
+      <!--配送先を入力するフォーム-->
       <div class="mx-5">
         <%= form_with model: @delivery do |f| %>
         

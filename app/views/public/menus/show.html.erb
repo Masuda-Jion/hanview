@@ -2,10 +2,12 @@
 
   <div class="row align-items-center pl-5">
 
+    <!--商品の画像が表示される-->
     <div class='col-5 pt-5 pr-5'>
       <%= image_tag @menu.get_image %>
     </div>
 
+    <!--商品の情報が表示される-->
     <div class='col-4 pt-5 pl-5'>
 
       <h5><%= @menu.name %></h5>
@@ -14,6 +16,7 @@
 
       <div>￥<%= @menu.tax_in_price %>(税込)</div>
       
+      <!--ログインしていない場合はカートに商品が追加できない-->
       <% if customer_signed_in? %> 
         <% if @menu.is_sale? %>
           <%= form_with(model: @cart_item, url: cart_items_path, local: true) do |f| %>
@@ -33,11 +36,13 @@
   </div>
   
   <div class="row my-5">
+    <!--レビューの一覧を表示する-->
     <%= render 'public/reviews/index', menu: @menu %>
   </div>
 
   
   <div class="pl-5 my-5">
+    <!--レビューを投稿するフォーム-->
     <%= render 'public/reviews/form',{ review: Review.new, menu: @menu } %>
   </div>
   
