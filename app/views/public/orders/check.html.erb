@@ -56,7 +56,7 @@
 
   </div>
 
-  <p>支払方法： <%= Order.payment_ways[@order.payment_way_i18n] %></p>
+  <p>支払方法： <%= @order.payment_way %></p>
 
   <p>お届け先： 〒<%= @order.postcode %> <%= @order.address %> <%= @order.name %></p>
 
